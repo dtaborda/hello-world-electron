@@ -1,15 +1,28 @@
+// cargamos los módulos de electron que vamos a usar
 const { app, BrowserWindow, ipcMain } = require('electron');
+// cargamos la función para crear un servidor HTTP
 const express = require('express')
+// cargamos Next.js
 const next = require('next')
 
+// verificamos si estamos en modo desarrollo
 const dev = process.env.NODE_ENV !== 'production'
+
+// crearmos nuestra app de Next.js
 const nextApp = next({ dev })
+// obtenermos la función para manejar peticiones a Next.js
 const handle = nextApp.getRequestHandler()
 
+// en esta variable vamos a guardar la instancia de nuestra UI
 let win;
+
 function createWindow() {
+  // iniciamos la app de Next.js
   nextApp.prepare()
   .then(() => {
+    // una vez lista creamos un servidor HTTP que use nuestro
+		// handler para ruteas todas las peticiones HTTP
+		// que reciba Next.js
     const server = express()
 
     server.get('/test', (req, res) => {
@@ -38,6 +51,7 @@ function createWindow() {
       return handle(req, res)
     })
 
+    // empezamos a escuchar el puerto 3000 con el servidor HTTP
     server.listen(3000, (err) => {
       if (err) throw err
       console.log('> Ready on http://localhost:3000')

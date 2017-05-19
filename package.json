@@ -2,16 +2,18 @@
   "name": "hello-world",
   "version": "1.0.0",
   "license": "MIT",
+  "main": "server/index.js",
   "scripts": {
     "dev": "electron server/index.js",
     "build": "next build",
-    "start": "NODE_ENV=production electron main.js"
+    "start": "NODE_ENV=production electron server/index.js"
   },
   "dependencies": {
     "electron": "1.6.8",
     "express": "^4.15.3",
     "next": "2.4.0",
     "patternfly-react": "^0.2.0",
+    "prop-types": "^15.5.10",
     "react": "15.5.4",
     "react-dom": "15.5.4"
   }
