@@ -4,10 +4,6 @@ import { Component } from 'react';
 // importamos los módulos de Electron que vamos a usar
 import { ipcRenderer } from 'electron';
 
-import {
-	Alert
-} from 'patternfly-react';
-
 // creamos y exportamos el componente de la home
 export default class HomePage extends Component {
 	// iniciamos el estado del componente
@@ -53,7 +49,7 @@ export default class HomePage extends Component {
 		// y por último estilizamos el H1.
 		return (
 			<div>
-				<h1>Hola Pibe!</h1>
+				<h1>Hello World - Electron </h1>
 
 				{this.state.message &&
 					<p>{this.state.message}</p>
@@ -62,36 +58,6 @@ export default class HomePage extends Component {
 				<form onSubmit={this.handleSubmit}>
 					<input type="text" onChange={this.handleChange} />
 				</form>
-
-				<Alert />
-
-				{/* <VNavbar>
-			    <VNavbar.Brand>
-			        <img className="navbar-brand-icon" src="http://www.patternfly.org/assets/img/logo-alt.svg" alt=""/><img
-			        className="navbar-brand-name" src="http://www.patternfly.org/assets/img/brand-alt.svg"
-			        alt="PatternFly Enterprise Application"/>
-			    </VNavbar.Brand>
-			    <VNavbar.LeftPanel>
-			        <NavItem><a href="#" target="_blank"
-			                    className="nav-item-iconic nav-item-iconic-new-window"><span
-			            title="Launch" className="fa fa-external-link"></span></a></NavItem>
-			    </VNavbar.LeftPanel>
-			    <VNavbar.RightPanel>
-			        <NavInfoList id='id1' label='Notification' onClear={()=>console.log('hola')}>
-			            <NavInfoItem label='Modified Datasources ExampleDS' />
-			            <NavInfoItem label='Test Message' />
-			            <NavInfoItem label='Error: System Failure' />
-			        </NavInfoList>
-			        <NavDropDown name='Help' icon='pficon-help'>
-			            <NavDropDownItem label='Help' onSelect={()=>console.log('hola')} payload={{command: 'help'}}/>
-			            <NavDropDownItem label='About' onSelect={()=>console.log('hola')} payload={{command: 'about'}}/>
-			        </NavDropDown>
-			        <NavDropDown name='User' icon='pficon-user'>
-			            <NavDropDownItem label='Preferences' onSelect={()=>console.log('hola')} payload={{command: 'preferences'}}/>
-			            <NavDropDownItem label='Logout' onSelect={()=>console.log('hola')} payload={{command: 'logout'}}/>
-			        </NavDropDown>
-			    </VNavbar.RightPanel>
-			</VNavbar> */}
 
 				<style jsx>{`
 					h1 {
